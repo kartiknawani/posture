@@ -89,7 +89,7 @@ function getPriorityInArray(latest_prediction_array, actual_predicted_value) {
 
 async function predictWebcam() {
 
-    let tensorImg = tf.browser.fromPixels(video).resizeNearestNeighbor([300, 300]).toFloat().expandDims();
+    let tensorImg = tf.browser.fromPixels(video).resizeNearestNeighbor([224, 224]).toFloat().expandDims();
     prediction = await model.predict(tensorImg).data();
     console.log(prediction)
     pred_index = prediction.indexOf(Math.max(...prediction));
